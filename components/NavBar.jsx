@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 function NavBar() {
@@ -16,7 +17,12 @@ function NavBar() {
 
       {/* Right Circle Button */}
       <div className="w-8 h-8 border border-red-500 rounded-full flex items-center justify-center hover:bg-red-100 cursor-pointer">
-        <span className="text-red-500 font-bold">O</span>
+        <span className="text-red-500 font-bold">
+          <Link href={"/manager/profilepage"}>
+          O
+          </Link>
+
+          </span>
       </div>
     </nav>
     </>

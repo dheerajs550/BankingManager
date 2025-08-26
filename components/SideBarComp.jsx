@@ -1,22 +1,30 @@
+import Link from 'next/link'
 import React from 'react'
+import { FaArrowAltCircleUp, FaMoneyBill, FaUserFriends } from 'react-icons/fa'
 
 function SideBarComp() {
   return (
     <>
      <div className="fixed top-0 left-0 min-h-screen pt-21 w-56 bg-[#fff7f4] border-r border-gray-200 p-4">
         <ul className="space-y-4">
-          <li className="flex items-center space-x-2 text-red-500 cursor-pointer">
-            {/* <FaUserFriends /> */}
+           <Link href={"/manager/agentslistpage"} className='block space-x-2'>
+          <li className="flex items-center space-x-2 text-red-500 cursor-pointer  hover:bg-[#f9f7f5]">
+            <FaUserFriends />
              <span>Agents</span>
           </li>
-          <li className="flex items-center space-x-2 text-gray-700 cursor-pointer hover:text-red-500">
-            {/* <FaMoneyBill />  */}
+          </Link>
+          <Link href={"/manager/todaypaymentlistpage"} className='block space-x-2'>
+          <li className="flex items-center space-x-2 text-red-500 cursor-pointer hover:bg-[#f9f7f5]">
+            <FaMoneyBill /> 
             <span>Payment</span>
           </li>
-          <li className="flex items-center space-x-2 text-gray-700 cursor-pointer hover:text-red-500">
-            {/* <FaArrowAltCircleUp /> */}
+          </Link>
+          <Link href={"/manager/withdrawlistpage"} className='block space-x-2'>
+          <li className="flex items-center space-x-2 text-red-500 cursor-pointer hover:bg-[#f9f7f5]">
+            <FaArrowAltCircleUp />
              <span>Withdraw</span>
           </li>
+          </Link>
         </ul>
         <div className="absolute bottom-6 left-4 flex items-center space-x-2 text-red-500 cursor-pointer">
           {/* <FaSignOutAlt />  */}

@@ -5,7 +5,7 @@ import NavBarSmall from './NavBarSmall'
 function LedgerDetailsCom() {
  const naveData ={
     title: "Ledger Details",
-    url:"/manager/managerlistpage",
+    url:"/manager/todaypaymentlistpage",
     icon: true, 
     inpul: false,
    }

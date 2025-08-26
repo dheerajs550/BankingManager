@@ -4,7 +4,7 @@ import NavBarSmall from './NavBarSmall'
 function AgentDetalsCom() {
    const naveData ={
     title: "Agent Details",
-    url:"/manager/managerlistpage",
+    url:"/manager/agentslistpage",
     icon: true, 
     inpul: false,
    }

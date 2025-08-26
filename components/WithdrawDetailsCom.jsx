@@ -5,7 +5,7 @@ import NavBarSmall from './NavBarSmall'
 function WithdrawDetailsCom() {
  const naveData ={
     title: " Details",
-    url:"/manager/managerlistpage",
+    url:"/manager/withdrawlistpage",
     icon: true, 
     inpul: false,
    }

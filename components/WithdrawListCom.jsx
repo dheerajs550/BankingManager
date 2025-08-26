@@ -3,21 +3,30 @@ import SideBarComp from './SideBarComp'
 import NavBarSmall from './NavBarSmall'
 import Button from './Button'
 import PaginationCom from './PaginationCom'
+import { getManagerTransactions } from '@/services/transactionService'
+import { formatDate } from '@/app/utils/date'
+import Link from 'next/link'
 
-function WithdrawListCom() {
+async function  WithdrawListCom() {
+  
+   const managerId = "689da812cc7836a88d544e93";
+    const apiData = await  getManagerTransactions(managerId)
+
+    console.log(apiData.data, "this")
+
     const btnData1 = {
-        route: '/manager/managerlistpage',
+        route: '/manager/agentslistpage',
         text: 'Reject',
         fill:  false,
     }
      const btnData2 = {
-        route: '/manager/managerlistpage',
+        route: '/manager/agentslistpage',
         text: 'Approve',
         fill:  true,
     }
    const naveData ={
     title: "withdraw List",
-    url:"/manager/managerlistpage",
+    url:"/manager/agentslistpage",
     icon: false, 
     inpul: true,
     btn: false,
@@ -52,12 +61,18 @@ function WithdrawListCom() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="border border-gray-200 p-2">1</td>
-                <td className="border border-gray-200 p-2">03/04/2025</td>
-                <td className="border border-gray-200 p-2">DUJDCBC544SG</td>
-                <td className="border border-gray-200 p-2">Yogesh Shinde<br></br> 9876543210 preston <br></br>Rd. Mumbi</td>
-                <td className="border border-gray-200 p-2">5000</td>
+                {apiData?.data?.map((item, index) => (
+                // <div key={index}>
+                // {/* <h1>{item.paymentMethod}</h1> */}
+                // </div>
+                 <tr key={index}>
+                <td className="border border-gray-200 p-2">{index + 1}</td>
+                <td className="border border-gray-200 p-2">{formatDate(item.transactionDate) }</td>
+               
+                <td className="border border-gray-200 p-2">  <Link href={"/manager/withdrawdetailspage"} >DUJDCBC544SG </Link></td>
+               
+                <td className="border border-gray-200 p-2">{item.customerId.name}<br></br> {item.customerId.contact}</td>
+                <td className="border border-gray-200 p-2">{item.amount}</td>
                 <td className="border border-gray-200 p-2">
                     <div className='mb-2'>
                     <Button data={btnData1} />
@@ -67,33 +82,14 @@ function WithdrawListCom() {
                     </div>
                    
                     </td>
-                <td className="border border-gray-200 p-2">pending</td>
+                <td className="border border-gray-200 p-2">{item.status}</td>
               </tr>
-              <tr className="bg-gray-50">
-                <td className="border border-gray-200 p-2">1</td>
-                <td className="border border-gray-200 p-2">03/04/2025</td>
-                <td className="border border-gray-200 p-2">DUJDCBC544SG</td>
-                <td className="border border-gray-200 p-2">Yogesh Shinde<br></br> 9876543210 preston <br></br>Rd. Mumbi</td>
-                <td className="border border-gray-200 p-2">5000</td>
-                <td className="border border-gray-200 p-2">
-                    <div className='mb-2'>
-                    <Button data={btnData1} />
-                    </div>
-                     <div className='mb-2'>
-                    <Button data={btnData2} />
-                    </div>
-                   
-                    </td>
-                <td className="border border-gray-200 p-2">pending</td>
-              </tr>
+                 ))}           
             </tbody>
           </table>
           <PaginationCom/>
         </div>
-          {/* Agent Information */}
-         
-
-         
+          {/* Agent Information */}   
         </div>
       </div>
     </div>

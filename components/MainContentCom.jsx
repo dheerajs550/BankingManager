@@ -6,7 +6,7 @@ import PaginationCom from './PaginationCom'
 function MainContentCom({data}) {
    const naveData ={
     title: "Agent List",
-    url:"/manager/managerlistpage",
+    url:"/manager/agentslistpage",
     icon: false, 
     inpul: true,
    }

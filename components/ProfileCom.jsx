@@ -5,7 +5,7 @@ import NavBarSmall from './NavBarSmall'
 function ProfileCom() {
  const naveData ={
     title: " profile",
-    url:"/manager/managerlistpage",
+    url:"/manager/agentslistpage",
     icon: true, 
     inpul: false,
    }

@@ -8,7 +8,7 @@ export default function SetNewPasswordForm() {
         fill:  false,
     }
      const btnData2 = {
-        route: '/manager/managerlistpage',
+        route: '/manager/agentslistpage',
         text: 'Confirm',
         fill:  true,
     }
